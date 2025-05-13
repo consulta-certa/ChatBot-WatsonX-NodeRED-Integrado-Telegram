@@ -454,10 +454,10 @@
           "value": "celular",
           "patterns": [
             "\\d{2}\\d{4}\\d{4}",
-            "\\d{4}\\d{4}",
-            "\\d{5}-\\d{4}",
-            "\\d{5}\\d{4}",
-            "\\d{5} \\d{4}"
+            "\\d{2} \\d{4}\\d{4}",
+            "\\d{2} \\d{5}-\\d{4}",
+            "\\d{2}\\d{5}\\d{4}",
+            "\\d{2} \\d{5} \\d{4}"
           ]
         }
       ],
@@ -641,13 +641,7 @@
           {
             "values": [
               {
-                "text": "Eu não entendi. Você pode tentar reformular a frase."
-              },
-              {
-                "text": "Você pode reformular sua afirmação? Eu não estou entendendo."
-              },
-              {
-                "text": "Eu não entendi o sentido."
+                "text": "Tudo bem, o processo foi cancelado.\nSe quiser começar novamente ou precisar de ajuda com outra coisa, estou aqui para te ajudar."
               }
             ],
             "response_type": "text",
@@ -742,7 +736,7 @@
           {
             "values": [
               {
-                "text": "Perfeito! 😊 Vou precisar alguns dados rapidinho:  📱 Seu número de WhatsApp (com DDD):"
+                "text": "Perfeito! 😊 Vou precisar alguns dados rapidinho:  📱 Seu número de WhatsApp EX: 11 12345 1234"
               }
             ],
             "response_type": "text"
@@ -779,7 +773,7 @@
           {
             "values": [
               {
-                "text": "Você confirma que seu nome é %nome, celular é $celular, o e-mail é $email?"
+                "text": "Você confirma que seu nome é celular é $celular, o e-mail é $email?"
               }
             ],
             "response_type": "text",
@@ -888,7 +882,25 @@
           {
             "values": [
               {
-                "text": "Perfeito! 👌\nPra acessar o app do Hospital das Clínicas, você vai precisar baixar o Portal do Paciente (caso ainda não tenha).\n\nAqui está um guia passo a passo com vídeo e explicação simples de como:\n\n👉 Ver guia de como acessar o app\nhttps://consultacerta.app.br/guia/app\n\nSe tiver dúvidas sobre senha, CPF ou onde clicar, me avisa que eu te explico! 💙"
+                "text": "Perfeito! 👌\nPra acessar o app do Hospital das Clínicas, você vai precisar baixar o Portal do Paciente (caso ainda não tenha).\n\nNo link abaixo está um guia passo a passo com vídeo e explicação simples de como acessar o app.\nhttps://consultacerta.app.br/guia/app\n\nSe tiver dúvidas sobre senha, CPF ou onde clicar, me avisa que eu te explico! 💙"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "Perfeito! \nPra acessar o app do Hospital das Clínicas, você vai precisar baixar o Portal do Paciente (caso ainda não tenha).\n\nNo link está um guia passo a passo com vídeo e explicação simples de como acessar o app.\n\nSe tiver dúvidas sobre senha, CPF ou onde clicar, me avisa que eu te explico! "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "https://consultacerta.app.br/guia/app"
               }
             ],
             "response_type": "text",
@@ -908,7 +920,19 @@
           {
             "values": [
               {
-                "text": "3. Quando a pessoa escolhe: ajuda técnica (@tipo_guia: tecnica)\n\nClaro! ⚙️ Vamos testar sua câmera e microfone antes da consulta.\n\nAqui está um guia rápido pra você verificar se está tudo certo:\n\n🎥 Como testar câmera e som\n👉 https://consultacerta.app.br/guia/teste-tecnico\n\nSe não estiver funcionando, me avisa que posso te mostrar outras soluções! 💡"
+                "text": "Claro! 😊 Vamos testar sua câmera e microfone antes da consulta.\n\nAqui está um guia rápido pra você verificar se está tudo certo:\n\n🎥 Como testar câmera e som\n👉 https://consultacerta.app.br/guia/teste-tecnico\n\nSe não estiver funcionando, me avisa que posso te mostrar outras soluções! 💡"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "Claro! Vamos testar sua câmera e microfone antes da consulta.\n\nAqui está um guia rápido pra você verificar se está tudo certo:\n\nComo testar câmera e som.\n\nSe não estiver funcionando, me avisa que posso te mostrar outras soluções!"
+              },
+              {
+                "text": "https://consultacerta.app.br/guia/teste-tecnico"
               }
             ],
             "response_type": "text",
@@ -929,7 +953,16 @@
           {
             "values": [
               {
-                "text": "Claro! 😊 Posso te mostrar guias rápidos pra te ajudar. O que você quer ver?\n\nEscolha uma das opções abaixo:\n\n1️⃣ Como usar o app e acessar a consulta\n2️⃣ Como se preparar antes da consulta (ambiente, documento, etc.)\n3️⃣ Como testar câmera, microfone ou resolver problemas técnicos\n\nÉ só digitar o número da opção ou o nome (ex: \"pre-consulta\") que eu te mando o conteúdo certo! 💙"
+                "text": "Claro! 😊 Posso te mostrar guias rápidos pra te ajudar. O que você quer ver?\nEscolha uma das opções abaixo:\n\n1️⃣ Como usar o app e acessar a consulta\n2️⃣ Como se preparar antes da consulta (ambiente, documento, etc.)\n3️⃣ Como testar câmera, microfone ou resolver problemas técnicos\n\nÉ só digitar o número da opção ou o nome (ex: \"pre-consulta\") que eu te mando o conteúdo certo! 💙"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          },
+          {
+            "values": [
+              {
+                "text": "Claro! Posso te mostrar guias rápidos pra te ajudar. O que você quer ver?\nEscolha uma das opções abaixo.\n\n1! Como usar o app e acessar a consulta.\n2! Como se preparar antes da consulta (ambiente, documento, etc.).\n3! Como testar câmera, microfone ou resolver problemas técnicos.\n\nÉ só digitar o número da opção ou o nome (ex: \"pre-consulta\") que eu te mando o conteúdo certo! "
               }
             ],
             "response_type": "text",
@@ -1030,6 +1063,24 @@
             "values": [
               {
                 "text": "Ótima escolha! 😊\nSe preparar direitinho faz toda a diferença. Aqui vão algumas dicas importantes:\n\n✔️ Encontre um lugar calmo e com boa luz\n✔️ Tenha seu documento por perto\n✔️ Esteja com o celular carregado\n✔️ Use fones se possível\n\n👉 Veja o vídeo com essas dicas completas\nhttps://consultacerta.app.br/guia/pre-consulta\n\nSe quiser, posso te lembrar disso no dia da consulta também!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "Ótima escolha! \nSe preparar direitinho faz toda a diferença. Aqui vão algumas dicas importantes:\n\nEncontre um lugar calmo e com boa luz.\nTenha seu documento por perto.\nEsteja com o celular carregado.\nUse fones se possível.\n\nVeja o vídeo com essas dicas completas"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "https://consultacerta.app.br/guia/pre-consulta"
               }
             ],
             "response_type": "text",

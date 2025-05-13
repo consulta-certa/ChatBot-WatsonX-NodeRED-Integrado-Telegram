@@ -19,7 +19,8 @@
         "y": 340,
         "wires": [
             [
-                "93379f0fa6260c95"
+                "93379f0fa6260c95",
+                "347cb8efdb836c68"
             ],
             []
         ]
@@ -243,7 +244,8 @@
         "y": 340,
         "wires": [
             [
-                "b1b3716701e8f241"
+                "b1b3716701e8f241",
+                "89f5b4bada172fdf"
             ]
         ]
     },
@@ -331,13 +333,13 @@
             [
                 "0fb38c937f818157"
             ],
+            [],
             [
-                "ce0360b6782826c7"
+                "f0fef88ea3939700"
             ],
             [
-                "f7a52e3d63b0c057"
-            ],
-            []
+                "9171245f5d10ec6a"
+            ]
         ]
     },
     {
@@ -345,7 +347,7 @@
         "type": "function",
         "z": "820f9108db388137",
         "name": "function 8",
-        "func": "msg.payload = msg.payload.output.generic[0].text;\nreturn msg;\n\n",
+        "func": "var tamanho = msg.payload.output.generic.length\nif (tamanho > 1) {\n    msg.payload = msg.payload.output.generic[1].text;\n}else{\n    msg.payload = msg.payload.output.generic[0].text;\n}\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -377,62 +379,19 @@
         "wires": []
     },
     {
-        "id": "ce0360b6782826c7",
-        "type": "function",
-        "z": "820f9108db388137",
-        "name": "Photo",
-        "func": "msg.params={\n    \"session_id\":msg.payload.chatId\n}\nmsg.payload = msg.payload.content;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 420,
-        "wires": [
-            [
-                "0383e73f7bbcb8be"
-            ]
-        ]
-    },
-    {
-        "id": "0383e73f7bbcb8be",
-        "type": "watson-assistant-v2",
-        "z": "820f9108db388137",
-        "name": "Watson BOT",
-        "service-endpoint": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/d61db492-76f5-4eae-97da-0bd20514cee2",
-        "assistant_id": "58ce0c6d-cf04-46a2-a88f-5271c9d08c8f",
-        "debug": false,
-        "restart": false,
-        "return_context": true,
-        "alternate_intents": false,
-        "multisession": true,
-        "timeout": "",
-        "optout-learning": false,
-        "persist-session-id": false,
-        "x": 850,
-        "y": 420,
-        "wires": [
-            [
-                "f0fef88ea3939700"
-            ]
-        ]
-    },
-    {
         "id": "f0fef88ea3939700",
         "type": "function",
         "z": "820f9108db388137",
         "name": "function 4",
-        "func": "msg.payload = {\n    \"content\": \"Oi! Vi que você mandou uma imagem, obrigado por isso. 📸\\nAinda não consigo entender fotos, mas tô aqui pra te ajudar!\\nMe conta rapidinho o que apareceu na tela, que a gente resolve juntos, tá bom? 💙\\nSe quiser, também posso te mandar um vídeo com o passo a passo. 😊\",\n    \"chatId\": msg.params.session_id,\n    \"type\": \"message\"\n}\nreturn msg;",
+        "func": "msg.payload = {\n    \"content\": \"Oi! Vi que você mandou uma imagem, obrigado por isso. 📸\\nAinda não consigo entender fotos, mas tô aqui pra te ajudar!\\nMe conta rapidinho o que apareceu na tela, que a gente resolve juntos, tá bom? 💙\\nSe quiser, também posso te mandar um vídeo com o passo a passo. 😊\",\n    \"chatId\": msg.payload.chatId,\n    \"type\": \"message\"\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1120,
-        "y": 420,
+        "x": 540,
+        "y": 440,
         "wires": [
             [
                 "8223c4115b92a0fd"
@@ -447,8 +406,8 @@
         "bot": "b994acb20815ba0a",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 1030,
-        "y": 220,
+        "x": 1070,
+        "y": 240,
         "wires": [
             []
         ]
@@ -461,53 +420,10 @@
         "bot": "b994acb20815ba0a",
         "haserroroutput": false,
         "outputs": 1,
-        "x": 1430,
-        "y": 420,
+        "x": 850,
+        "y": 440,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "f7a52e3d63b0c057",
-        "type": "function",
-        "z": "820f9108db388137",
-        "name": "Sticker",
-        "func": "msg.params={\n    \"session_id\":msg.payload.chatId\n}\nmsg.payload = msg.payload.content;\nreturn msg;",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 530,
-        "y": 520,
-        "wires": [
-            [
-                "3b476f2d44bd1e4e"
-            ]
-        ]
-    },
-    {
-        "id": "3b476f2d44bd1e4e",
-        "type": "watson-assistant-v2",
-        "z": "820f9108db388137",
-        "name": "Watson BOT",
-        "service-endpoint": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/d61db492-76f5-4eae-97da-0bd20514cee2",
-        "assistant_id": "58ce0c6d-cf04-46a2-a88f-5271c9d08c8f",
-        "debug": false,
-        "restart": false,
-        "return_context": true,
-        "alternate_intents": false,
-        "multisession": true,
-        "timeout": "",
-        "optout-learning": false,
-        "persist-session-id": false,
-        "x": 870,
-        "y": 520,
-        "wires": [
-            [
-                "9171245f5d10ec6a"
-            ]
         ]
     },
     {
@@ -515,33 +431,55 @@
         "type": "function",
         "z": "820f9108db388137",
         "name": "function 11",
-        "func": "msg.payload = {\n    \"content\": \"Oi! Vi que você mandou um gif, obrigado por isso. 📸\\nAinda não consigo entender fotos, mas tô aqui pra te ajudar!\\nMe conta rapidinho o que apareceu na tela, que a gente resolve juntos, tá bom? 💙\\nSe quiser, também posso te mandar um vídeo com o passo a passo. 😊\",\n    \"chatId\": msg.params.session_id,\n    \"type\": \"message\"\n}\nreturn msg;",
+        "func": "msg.payload = {\n    \"content\": \"Oi! Vi que você mandou um gif, obrigado por isso. 📸\\nAinda não consigo entender fotos, mas tô aqui pra te ajudar!\\nMe conta rapidinho o que apareceu na tela, que a gente resolve juntos, tá bom? 💙\\nSe quiser, também posso te mandar um vídeo com o passo a passo. 😊\",\n    \"chatId\": msg.payload.chatId,\n    \"type\": \"message\"\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1130,
-        "y": 520,
+        "x": 550,
+        "y": 540,
         "wires": [
             [
-                "e22377288e010cac"
+                "8223c4115b92a0fd"
             ]
         ]
     },
     {
-        "id": "e22377288e010cac",
-        "type": "telegram sender",
+        "id": "347cb8efdb836c68",
+        "type": "debug",
         "z": "820f9108db388137",
-        "name": "",
-        "bot": "b994acb20815ba0a",
-        "haserroroutput": false,
+        "name": "debug 9",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 240,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "89f5b4bada172fdf",
+        "type": "function",
+        "z": "820f9108db388137",
+        "name": "function 12",
+        "func": "msg.payload = {\n    \"content\": msg.payload.output.generic[2].text,\n    \"chatId\": msg.params.session_id,\n    \"type\": \"message\"\n}\nreturn msg;",
         "outputs": 1,
-        "x": 1450,
-        "y": 520,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1290,
+        "y": 480,
         "wires": [
-            []
+            [
+                "74a5191452b03213"
+            ]
         ]
     },
     {
@@ -551,7 +489,6 @@
         "usernames": "",
         "chatids": "",
         "baseapiurl": "",
-        "testenvironment": false,
         "updatemode": "polling",
         "pollinterval": "300",
         "usesocks": false,
@@ -562,7 +499,6 @@
         "sockspassword": "",
         "bothost": "",
         "botpath": "",
-        "localbothost": "",
         "localbotport": "8443",
         "publicbotport": "8443",
         "privatekey": "",

@@ -1,6 +1,6 @@
 [
     {
-        "id": "820f9108db388137",
+        "id": "5ed833547a0dd05f",
         "type": "tab",
         "label": "Flow 1",
         "disabled": false,
@@ -8,27 +8,9 @@
         "env": []
     },
     {
-        "id": "be7e9c8960873dad",
-        "type": "telegram receiver",
-        "z": "820f9108db388137",
-        "name": "Dona Certa bot",
-        "bot": "b994acb20815ba0a",
-        "saveDataDir": "",
-        "filterCommands": false,
-        "x": 120,
-        "y": 340,
-        "wires": [
-            [
-                "93379f0fa6260c95",
-                "347cb8efdb836c68"
-            ],
-            []
-        ]
-    },
-    {
-        "id": "de9d03bf7d5cdb3d",
+        "id": "6ef4a6f9207a0629",
         "type": "watson-assistant-v2",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "Watson BOT",
         "service-endpoint": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/d61db492-76f5-4eae-97da-0bd20514cee2",
         "assistant_id": "58ce0c6d-cf04-46a2-a88f-5271c9d08c8f",
@@ -44,15 +26,16 @@
         "y": 220,
         "wires": [
             [
-                "272a4ef438945c16",
-                "79186eaacebed3eb"
+                "a99fd27dfcf560d9",
+                "02957a7f7fdcf148",
+                "2b63552aa015e9a5"
             ]
         ]
     },
     {
-        "id": "02570c034d8f0347",
+        "id": "1d48ee15eb05e15a",
         "type": "function",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "Texto",
         "func": "msg.params={\n    \"session_id\":msg.payload.chatId\n}\nmsg.payload = msg.payload.content;\nreturn msg;",
         "outputs": 1,
@@ -65,15 +48,15 @@
         "y": 220,
         "wires": [
             [
-                "de9d03bf7d5cdb3d",
-                "4d8ceec411d9e1fd"
+                "6ef4a6f9207a0629",
+                "77366db83431a492"
             ]
         ]
     },
     {
-        "id": "4d8ceec411d9e1fd",
+        "id": "77366db83431a492",
         "type": "debug",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "debug 2",
         "active": true,
         "tosidebar": true,
@@ -87,9 +70,9 @@
         "wires": []
     },
     {
-        "id": "272a4ef438945c16",
+        "id": "a99fd27dfcf560d9",
         "type": "debug",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "debug 3",
         "active": true,
         "tosidebar": true,
@@ -103,9 +86,9 @@
         "wires": []
     },
     {
-        "id": "a383abfe30d34c6e",
+        "id": "7dfd0ff0bb976c52",
         "type": "comment",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "IntegrandoBOT_Telegram",
         "info": "Integrando bot do ibmCloud ao telegram\n",
         "x": 230,
@@ -113,9 +96,9 @@
         "wires": []
     },
     {
-        "id": "79186eaacebed3eb",
+        "id": "02957a7f7fdcf148",
         "type": "function",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "function 2",
         "func": "msg.payload = {\n    \"content\":msg.payload.output.generic[0].text,\n    \"type\":\"message\",\n    \"chatId\": msg.params.session_id\n}\nreturn msg;",
         "outputs": 1,
@@ -128,15 +111,15 @@
         "y": 220,
         "wires": [
             [
-                "3f3ee3f930584210",
-                "7c9be63d30216f17"
+                "bc5a647babe83195",
+                "4c856e5280d33f4a"
             ]
         ]
     },
     {
-        "id": "3f3ee3f930584210",
+        "id": "bc5a647babe83195",
         "type": "debug",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "debug 4",
         "active": true,
         "tosidebar": true,
@@ -150,9 +133,9 @@
         "wires": []
     },
     {
-        "id": "0fb38c937f818157",
+        "id": "ae8f58a77acf59e0",
         "type": "function",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "Audio",
         "func": "msg.params={\n    \"session_id\" : msg.payload.chatId\n}\nmsg.payload=msg.payload.weblink;\nreturn msg;",
         "outputs": 1,
@@ -165,14 +148,14 @@
         "y": 340,
         "wires": [
             [
-                "d88b724fc5667def"
+                "68fca5631ecef568"
             ]
         ]
     },
     {
-        "id": "d88b724fc5667def",
+        "id": "68fca5631ecef568",
         "type": "watson-speech-to-text",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "",
         "alternatives": 1,
         "speakerlabels": true,
@@ -200,14 +183,14 @@
         "y": 340,
         "wires": [
             [
-                "c04fbe2bee86dd98"
+                "3a7425a4b2a72656"
             ]
         ]
     },
     {
-        "id": "69bab3fa4b5a160c",
+        "id": "faf5e96ac7499144",
         "type": "function",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "function 6",
         "func": "msg.payload = {\n    \"content\": msg.payload,\n    \"chatId\": msg.params.session_id,\n    \"type\": \"voice\"\n}\nreturn msg;",
         "outputs": 1,
@@ -220,15 +203,15 @@
         "y": 340,
         "wires": [
             [
-                "74a5191452b03213",
-                "9760c84e444d3a0c"
+                "7cc06520afdb5f74",
+                "126a67b1eef0ad13"
             ]
         ]
     },
     {
-        "id": "c04fbe2bee86dd98",
+        "id": "3a7425a4b2a72656",
         "type": "watson-assistant-v2",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "Watson BOT",
         "service-endpoint": "https://api.us-south.assistant.watson.cloud.ibm.com/instances/d61db492-76f5-4eae-97da-0bd20514cee2",
         "assistant_id": "58ce0c6d-cf04-46a2-a88f-5271c9d08c8f",
@@ -244,17 +227,17 @@
         "y": 340,
         "wires": [
             [
-                "b1b3716701e8f241",
-                "89f5b4bada172fdf"
+                "3856bcc37199f5f4",
+                "cb7e524ba0259d56"
             ]
         ]
     },
     {
-        "id": "74a5191452b03213",
+        "id": "7cc06520afdb5f74",
         "type": "telegram sender",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "",
-        "bot": "b994acb20815ba0a",
+        "bot": "76612b6346d40358",
         "haserroroutput": false,
         "outputs": 1,
         "x": 1650,
@@ -264,9 +247,9 @@
         ]
     },
     {
-        "id": "91ec90746fd6b2c1",
+        "id": "f61795b471f18024",
         "type": "watson-text-to-speech",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "",
         "lang": "pt-BR",
         "langhidden": "pt-BR",
@@ -283,14 +266,14 @@
         "y": 340,
         "wires": [
             [
-                "69bab3fa4b5a160c"
+                "faf5e96ac7499144"
             ]
         ]
     },
     {
-        "id": "93379f0fa6260c95",
+        "id": "c859b8495d6df17c",
         "type": "switch",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "",
         "property": "payload.type",
         "propertyType": "msg",
@@ -328,26 +311,26 @@
         "y": 340,
         "wires": [
             [
-                "02570c034d8f0347"
+                "1d48ee15eb05e15a"
             ],
             [
-                "0fb38c937f818157"
+                "ae8f58a77acf59e0"
             ],
             [],
             [
-                "f0fef88ea3939700"
+                "1524f4587ec99232"
             ],
             [
-                "9171245f5d10ec6a"
+                "e07e7389e0196a59"
             ]
         ]
     },
     {
-        "id": "b1b3716701e8f241",
+        "id": "3856bcc37199f5f4",
         "type": "function",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "function 8",
-        "func": "var tamanho = msg.payload.output.generic.length\nif (tamanho > 1) {\n    msg.payload = msg.payload.output.generic[1].text;\n}else{\n    msg.payload = msg.payload.output.generic[0].text;\n}\nreturn msg;\n\n",
+        "func": "msg.payload = msg.payload.output.generic[0].text;\n\nreturn msg;\n\n",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -358,14 +341,14 @@
         "y": 340,
         "wires": [
             [
-                "91ec90746fd6b2c1"
+                "f61795b471f18024"
             ]
         ]
     },
     {
-        "id": "9760c84e444d3a0c",
+        "id": "126a67b1eef0ad13",
         "type": "debug",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "debug 8",
         "active": true,
         "tosidebar": true,
@@ -379,9 +362,9 @@
         "wires": []
     },
     {
-        "id": "f0fef88ea3939700",
+        "id": "1524f4587ec99232",
         "type": "function",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "function 4",
         "func": "msg.payload = {\n    \"content\": \"Oi! Vi que você mandou uma imagem, obrigado por isso. 📸\\nAinda não consigo entender fotos, mas tô aqui pra te ajudar!\\nMe conta rapidinho o que apareceu na tela, que a gente resolve juntos, tá bom? 💙\\nSe quiser, também posso te mandar um vídeo com o passo a passo. 😊\",\n    \"chatId\": msg.payload.chatId,\n    \"type\": \"message\"\n}\nreturn msg;",
         "outputs": 1,
@@ -394,16 +377,16 @@
         "y": 440,
         "wires": [
             [
-                "8223c4115b92a0fd"
+                "63b57ce859323673"
             ]
         ]
     },
     {
-        "id": "7c9be63d30216f17",
+        "id": "4c856e5280d33f4a",
         "type": "telegram sender",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "",
-        "bot": "b994acb20815ba0a",
+        "bot": "76612b6346d40358",
         "haserroroutput": false,
         "outputs": 1,
         "x": 1070,
@@ -413,11 +396,11 @@
         ]
     },
     {
-        "id": "8223c4115b92a0fd",
+        "id": "63b57ce859323673",
         "type": "telegram sender",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "",
-        "bot": "b994acb20815ba0a",
+        "bot": "76612b6346d40358",
         "haserroroutput": false,
         "outputs": 1,
         "x": 850,
@@ -427,9 +410,9 @@
         ]
     },
     {
-        "id": "9171245f5d10ec6a",
+        "id": "e07e7389e0196a59",
         "type": "function",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "function 11",
         "func": "msg.payload = {\n    \"content\": \"Oi! Vi que você mandou um gif, obrigado por isso. 📸\\nAinda não consigo entender fotos, mas tô aqui pra te ajudar!\\nMe conta rapidinho o que apareceu na tela, que a gente resolve juntos, tá bom? 💙\\nSe quiser, também posso te mandar um vídeo com o passo a passo. 😊\",\n    \"chatId\": msg.payload.chatId,\n    \"type\": \"message\"\n}\nreturn msg;",
         "outputs": 1,
@@ -442,14 +425,14 @@
         "y": 540,
         "wires": [
             [
-                "8223c4115b92a0fd"
+                "63b57ce859323673"
             ]
         ]
     },
     {
-        "id": "347cb8efdb836c68",
+        "id": "381816a36f67e1e4",
         "type": "debug",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "debug 9",
         "active": true,
         "tosidebar": true,
@@ -463,11 +446,11 @@
         "wires": []
     },
     {
-        "id": "89f5b4bada172fdf",
+        "id": "cb7e524ba0259d56",
         "type": "function",
-        "z": "820f9108db388137",
+        "z": "5ed833547a0dd05f",
         "name": "function 12",
-        "func": "msg.payload = {\n    \"content\": msg.payload.output.generic[2].text,\n    \"chatId\": msg.params.session_id,\n    \"type\": \"message\"\n}\nreturn msg;",
+        "func": "msg.payload = {\n    \"content\": msg.payload.output.generic[1].text,\n    \"chatId\": msg.params.session_id,\n    \"type\": \"message\"\n}\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
@@ -478,29 +461,69 @@
         "y": 480,
         "wires": [
             [
-                "74a5191452b03213"
+                "7cc06520afdb5f74"
             ]
         ]
     },
     {
-        "id": "b994acb20815ba0a",
+        "id": "e16a14b1664430ef",
+        "type": "telegram receiver",
+        "z": "5ed833547a0dd05f",
+        "name": "Dona Certa bot",
+        "bot": "76612b6346d40358",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 120,
+        "y": 340,
+        "wires": [
+            [
+                "c859b8495d6df17c",
+                "381816a36f67e1e4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2b63552aa015e9a5",
+        "type": "function",
+        "z": "5ed833547a0dd05f",
+        "name": "function 1",
+        "func": "msg.payload = {\n    \"content\": msg.payload.output.generic[1].text,\n    \"chatId\": msg.params.session_id,\n    \"type\": \"message\"\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 820,
+        "y": 260,
+        "wires": [
+            [
+                "4c856e5280d33f4a"
+            ]
+        ]
+    },
+    {
+        "id": "76612b6346d40358",
         "type": "telegram bot",
         "botname": "ConsultaCerta_bot",
         "usernames": "",
         "chatids": "",
         "baseapiurl": "",
+        "testenvironment": false,
         "updatemode": "polling",
-        "pollinterval": "300",
+        "pollinterval": 300,
         "usesocks": false,
         "sockshost": "",
         "socksprotocol": "socks5",
-        "socksport": "6667",
+        "socksport": 6667,
         "socksusername": "anonymous",
         "sockspassword": "",
         "bothost": "",
         "botpath": "",
-        "localbotport": "8443",
-        "publicbotport": "8443",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
         "privatekey": "",
         "certificate": "",
         "useselfsignedcertificate": false,
